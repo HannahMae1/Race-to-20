@@ -1,0 +1,50 @@
+/*
+  AnalogReadSerial
+
+  Reads an analog input on pin 0, prints the result to the Serial Monitor.
+  Graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
+  Attach the center pin of a potentiometer to pin A0, and the outside pins to +5V and ground.
+
+  This example code is in the public domain.
+
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/AnalogReadSerial
+*/
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize serial communication at 9600 bits per second
+Serial.begin(9600); 
+int a0score =0;
+int a1score =0;
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  // read the input on analog pin 0:
+  int sensorValueA0 = analogRead(A0);
+  int sensorValueA1 = analogRead(A1);
+  // print out the value you read:
+ Serial.println("Sensor Value A0");
+ Serial.println(sensorValueA0);
+ Serial.println("Sensor Value A1");
+ Serial.println(sensorValueA1);
+  delay(15);
+  
+  // delay in between reads for stability
+;{}
+ if (sensorValueA1 > sensorValueA0 ){
+   //do something 
+   a0score++
+ }
+if (sensorValueA0 > sensorValueA1 )
+//do something else
+a1Score++;
+}
+if (a1score > 100){
+  Serial.println("Sensor Value A1 Wins!!!!!")
+}
+
+if (a0score > 100) {
+  Serial.println("Sensor Value A0 Wins!!!!!")
+  
+}
